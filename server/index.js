@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get("/a", (req, res) => {
+app.get("/get", (req, res) => {
     res.send("hello");
 });
 
@@ -27,7 +27,7 @@ app.post("/", async (req, res) => {
         const { message } = req.body;
        
         if (!message) {
-            throw new Error("Missing input parameter: message");
+            throw new Error("Missing parameter");
         }
         const response = await openai.createCompletion({
             model: "text-davinci-003",
